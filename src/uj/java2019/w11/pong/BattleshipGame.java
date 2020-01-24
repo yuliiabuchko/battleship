@@ -39,6 +39,7 @@ public class BattleshipGame extends BattleShipHelper {
         String enemyResponse = parseInputLine(resp);
         if(enemyResponse.equals(gameLost)){
             System.out.println("Wygrana");
+            applyEnemyResponse(enemyResponse);
             print(myGrid);
             System.out.println();
             print(enemyGrid);
@@ -172,9 +173,20 @@ public class BattleshipGame extends BattleShipHelper {
 
     void setPointToMiss(int h, int w){
         try {
-            if (enemyGrid[h][w] == CellStatus.WATER) enemyGrid[h][w] = CellStatus.MISS;
+            if (enemyGrid[h][w] == CellStatus.UNKNOWN) enemyGrid[h][w] = CellStatus.MISS;
         } catch (IndexOutOfBoundsException e){
             // no trudno
         }
     }
+
+    /*
+
+    . . . .
+    . # . .
+    . # # .
+    . . # .
+    . . . .
+
+
+    */
 }

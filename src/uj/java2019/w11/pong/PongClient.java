@@ -5,7 +5,7 @@ import java.net.Socket;
 
 public class PongClient {
 
-    private static final String HOST = "192.168.1.100";
+    private static final String HOST = "10.60.254.190";
     private static final int PORT = 6666;
 
     public static void main(String[] args) throws IOException {

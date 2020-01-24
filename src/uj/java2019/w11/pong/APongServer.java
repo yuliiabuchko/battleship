@@ -38,12 +38,10 @@ public class APongServer {
         InetAddress addr = findAddress();
         APongServer pongServer = new APongServer(addr, 6666);
         new Thread(pongServer::run, "PongServer").start();
-        System.out.println("ttttt");
     }
 
     public void run() {
         try {
-            System.out.println("bef");
             runServer();
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -52,13 +50,10 @@ public class APongServer {
 
     private void runServer() throws IOException {
         while (true) {
-            System.out.println("ser");
-
             this.selector.select();
             Iterator keys = this.selector.selectedKeys().iterator();
             try {
                 while (keys.hasNext()) {
-                    System.out.println("rty");
                     SelectionKey key = (SelectionKey) keys.next();
                     keys.remove();
                     if (!key.isValid()) continue;
